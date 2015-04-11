@@ -14,12 +14,14 @@ npm install react-onclickoutside --save
 var Component = React.createClass({
   mixins: [
     require('react-onclickoutside')
-  ],
-
-  handleClickOutside: function(evt) {
-    // ...handling code goes here...
-  }
+  ]
 });
+```
+
+Don't forget to provide an event handler for your component:
+
+```
+<MyComponent onClickOutside={handlerFunction}/>
 ```
 
 If you have plain-old-browser needs, you can install this mixin via `bower`, using:
@@ -40,11 +42,7 @@ Then use it as:
 var Component = React.createClass({
   mixins: [
     OnClickOutside
-  ],
-
-  handleClickOutside: function(evt) {
-    // ...handling code goes here...
-  }
+  ]
 });
 ```
 

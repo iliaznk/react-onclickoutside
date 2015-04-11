@@ -37,8 +37,8 @@
 
   return {
     componentDidMount: function() {
-      if(!this.handleClickOutside)
-        throw new Error("Component lacks a handleClickOutside(event) function for processing outside click events.");
+      if(!this.props.onClickOutside)
+        throw new Error("Component lacks an onClickOutside event handler for processing outside click events.");
 
       var fn = (function(localNode, eventHandler) {
         return function(evt) {
@@ -56,7 +56,7 @@
           }
           eventHandler(evt);
         }
-      }(this.getDOMNode(), this.handleClickOutside));
+      }(this.getDOMNode(), this.props.onClickOutside));
 
       document.addEventListener("mousedown", fn);
       document.addEventListener("touchstart", fn);
